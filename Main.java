@@ -146,7 +146,7 @@ public class Main extends Application {
                     if(listOfWords[i].endsWith(".") && !b_isInt(listOfWords[i]) && !b_isList(listOfWords[i])) {
                        temp += pE;
                     }
-//continye here
+
                     if(b_isList(listOfWords[i])) {
                         String tempFormat = "";
                         for(int j = i; j < listOfWords.length; j++) {
@@ -179,7 +179,7 @@ public class Main extends Application {
     }
 
     private boolean b_isList(String inp) {
-        if(inp.startsWith("-") || inp.startsWith("•")) {
+        if(inp.startsWith("-") || inp.startsWith("â€¢")) {
             return true;
         }
         return false;
@@ -217,7 +217,7 @@ public class Main extends Application {
         return false;
     }
     private boolean b_isCurrency(String inp) {
-        if(inp.contains("€") || inp.contains("£")) { // Could also be replaced with a list that contains all currency-related symbols.
+        if(inp.contains("â‚¬") || inp.contains("Â£")) { // Could also be replaced with a list that contains all currency-related symbols.
             return true;
         }
         else { return false; }
@@ -233,8 +233,8 @@ public class Main extends Application {
     } catch(NumberFormatException ex) { return false; }
     }
     private String tagAsIntCurrency(String inp) {
-        if(inp.contains("€")) {
-            inp = inp.replaceAll("€", "");
+        if(inp.contains("â‚¬")) {
+            inp = inp.replaceAll("â‚¬", "");
         }
         return int_curS + inp + int_curE;
     }
@@ -256,7 +256,7 @@ public class Main extends Application {
     return d_cur + inp + d_curM + amount_of_decimals + d_curE;
     }
     private boolean b_containsEURchar(String inp) {
-        if(inp.toLowerCase().contains("eur") |inp.toLowerCase().contains("euro") || inp.contains("€")
+        if(inp.toLowerCase().contains("eur") |inp.toLowerCase().contains("euro") || inp.contains("â‚¬")
         || inp.toLowerCase().contains("sek") || inp.toLowerCase().contains("kronor")) {
         return true;
         }
@@ -269,9 +269,9 @@ public class Main extends Application {
         return inp;
     }
     private String removeBullets(String inp) {
-        if(inp.contains("-") || inp.contains("•")) {
+        if(inp.contains("-") || inp.contains("â€¢")) {
             inp = inp.replace('-', '\0');
-            inp = inp.replace('•', '\0');
+            inp = inp.replace('â€¢', '\0');
         }
         return inp;
     }
